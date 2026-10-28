@@ -1,0 +1,22 @@
+package com.hexagon.springmvc.domain;
+
+import java.time.LocalDateTime;
+
+import lombok.Getter;
+import lombok.Setter;
+
+//이 클래스는 html 파라미터를 받는 DTO가 아니라, db의 테이블과의 ERUD에 사용될 domain 객체이다
+@Getter
+@Setter
+public class Emp {
+	private int empId;
+	private String ename;
+	private String email;
+	private String phone;
+	private LocalDateTime hiredate;
+	private departmentId;//fk
+	job_id
+	 hr_position_id//fk
+	private String status;
+	private int annualLeaveDays;
+}

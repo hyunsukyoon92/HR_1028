@@ -1,0 +1,27 @@
+package com.hexagon.springmvc.security;
+
+import java.util.Collection;
+import java.util.Collections;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import com.hexagon.springmvc.domain.Admin;
+
+import lombok.Getter;
+/*---------------------------------------------------------------------------------------------------------------------
+	애플리케이션 마다 db상 아이디, 패스워드 등의 컬럼 명이 틀리기 때문에 스프링이 자동으로 인식 불가
+	따라서 스프링 측에서 이미 정의해놓은 도메인 객체인 UserDetails 안에 우리의 Admin도메이 객체의 정보를 대입해놓아야 한다
+------------------------------------------------------------------------------------------------------------------------*/
+@Getter
+public class AdminDetails implements UserDetails {
+
+	// 사용자 정보를 낱개로 보유하지 않기 위해 Admin 통째로 보유하자!!
+	private Admin admin;
+
+	public AdminDetails(Admin admin) {
+		this.admin = admin;
+	}
+
+
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<!-- 데이터베이스분야의 _언더바와 java 언어에서의 Camel 기법간 차이를 자동으로 매핑해줌 -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>		
+	</settings>
+	
+	<!-- 도메인 객체들의 패키지 경로를 포함한 명칭이 너무 긴 경우를 대비해 alias로 짧게 작성을 지원 -->
+	<typeAliases>
+		<typeAlias type="com.hexagon.mvcframework.domain.Board" alias="Board"/>
+	</typeAliases>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<!-- mybatis의 자체적인 POOL 이 아닌 우리톰켓에서 설정된 커넥션풀을 사용한다  -->
+			<dataSource type="POOLED">
+				<!-- <property name="data_source" value="java:comp/env/jdbc/mysql" /> -->
+		        <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+		        <property name="url" value="jdbc:mysql://localhost:3306/javadb?serverTimezone=Asia/Seoul&amp;characterEncoding=UTF-8&amp;allowPublicKeyRetrieval=true&amp;useSSL=false"/>
+		        <property name="username" value="mvc"/>
+		        <property name="password" value="1234"/>
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="mappers/BoardMapper.xml" />
+	</mappers>
+</configuration>

@@ -1,0 +1,11 @@
+package com.hexagon.springmvc.domain;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class TopCategory {
+	private int topcategory_id;
+	private String top_name;
+}

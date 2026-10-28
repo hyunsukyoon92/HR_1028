@@ -1,0 +1,29 @@
+package com.hexagon.springmvc.rest.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class RestNewsController {
+
+	@GetMapping("/api/news")
+	public List<String> getList(HttpServletResponse response) {
+		
+		//헤더에 status 코드를 일부러 에러를 만들어서 보내기!!fetch가 어떻게 동작하는지 보려고
+		response.setStatus(HttpServletResponse.SC_CONFLICT);
+		
+		//아직 db 연동을 안했으므로, 게시물 목록을 가짜로 흉내 Mock 데이터 만들어보기
+		List<String> newsList = new ArrayList<>(List.of(
+				"강남에 큰 불",
+				"태풍 큰거 온다",
+				"일본 PHP 난리"
+				
+		));
+		return newsList;
+	}
+}

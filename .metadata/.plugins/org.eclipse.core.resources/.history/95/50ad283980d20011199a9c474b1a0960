@@ -1,0 +1,9 @@
+package com.hexagon.springmvc.domain;
+
+public class Department {
+	
+	private int departmentId;
+	private String departmentCode;
+	private String departmentName;
+	private int isActive;
+}

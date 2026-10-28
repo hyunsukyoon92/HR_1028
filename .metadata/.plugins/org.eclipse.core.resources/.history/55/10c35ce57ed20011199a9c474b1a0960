@@ -1,0 +1,13 @@
+package com.hexagon.springmvc.domain;
+
+import java.time.LocalDateTime;
+
+public class Account {
+	private int accountId;
+	private String empId;//주의!!
+	private String loginId;
+	private String password;
+	private int enabled;
+	private LocalDateTime createdAt;
+	private LocalDateTime lastLoginAt;
+}

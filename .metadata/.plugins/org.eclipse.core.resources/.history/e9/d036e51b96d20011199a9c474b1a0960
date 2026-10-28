@@ -1,0 +1,8 @@
+package com.hexagon.springmvc.mapper;
+
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface JobMapper {
+	Job select(int jobId);
+}

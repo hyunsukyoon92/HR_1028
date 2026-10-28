@@ -1,0 +1,5 @@
+package com.hexagon.springmvc.mapper;
+
+public interface AccountMapper {
+
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.HrRoleMapper">
+
+	<!-- 특정 사원의 계정이 보유한 Role만 가져오기 -->
+	<select id="">
+		SELECT * FROM hr_role WHERE hr_role_id IN (
+		SELECT hr_role_id FROM account_role WHERE account_id=1
+	)
+	</select>
+
+</mapper>

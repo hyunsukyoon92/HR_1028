@@ -1,0 +1,15 @@
+package com.hexagon.springmvc.rest.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class RestNewsController {
+
+	@GetMapping("/api/news")
+	public String getList() {
+		
+		//아직 db 연동을 안했으므로, 게시물 목록을 가짜로 흉내
+		return "";
+	}
+}

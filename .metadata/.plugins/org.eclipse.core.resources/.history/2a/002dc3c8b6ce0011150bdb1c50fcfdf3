@@ -1,0 +1,5 @@
+package com.hexagon.springmvc.rest.controller;
+
+public class RestSubCategoryController {
+
+}

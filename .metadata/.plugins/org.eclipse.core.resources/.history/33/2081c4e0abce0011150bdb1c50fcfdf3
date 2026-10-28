@@ -1,0 +1,27 @@
+package com.hexagon.springmvc.rest.controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.hexagon.springmvc.service.TopCategoryService;
+
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequiredArgsConstructor
+public class RestTopCategoryController {
+
+	private TopCategoryService topCategoryService;
+	
+	@GetMapping("/api/topcategories")
+	public ResponseEntity<?> getTopList(Model model){
+		
+		
+		topCategoryService.getTopCategoryList();//3단계 일 시키기
+		
+		
+		return null;
+	}
+}

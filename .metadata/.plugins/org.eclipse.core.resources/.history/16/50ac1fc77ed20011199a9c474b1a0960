@@ -1,0 +1,5 @@
+package com.hexagon.springmvc.domain;
+
+public class Account {
+
+}

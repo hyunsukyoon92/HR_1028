@@ -1,0 +1,10 @@
+package com.hexagon.springmvc.security;
+
+public class PasswordCreateor {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

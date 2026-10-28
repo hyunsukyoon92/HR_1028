@@ -1,0 +1,5 @@
+package com.hexagon.springmvc.dto.request;
+
+public class NewsRequestDTO {
+
+}

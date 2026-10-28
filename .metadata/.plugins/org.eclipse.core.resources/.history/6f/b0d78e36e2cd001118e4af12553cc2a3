@@ -1,0 +1,7 @@
+package com.hexagon.springmvc.mapper;
+
+import com.hexagon.springmvc.domain.Admin;
+
+public interface AdminMapper {
+	public Admin selectById(String loginId); 
+}

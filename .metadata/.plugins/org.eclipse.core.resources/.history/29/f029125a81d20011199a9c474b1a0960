@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.AccountMapper">
+
+<!-- login_id 가 일치하는 회원 가져오기 -->
+<select id="selectById" parameterType="String" resultType="account">
+	select account_id, emp_id, login_id, password, enabled, created_at, last_login_at
+	from account
+	where login_id=#{loginId}
+</select>
+
+</mapper>

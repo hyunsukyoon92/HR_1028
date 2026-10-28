@@ -1,0 +1,19 @@
+-- 뉴스기사 최상위 카테고리
+create table topcategory(
+	topcategory_id number promary key
+	, top_name varchar2(30) -- 정치, 경제, 사회, IT/과학
+);
+
+create table subcategory(
+	subcategory_id number primary key
+	, sub_name varchar2(30)
+	, topcategory_id number
+	, constaraint fk_subcategory_topcategory foreign key(topcategory_id) references topcategory(topcategory_id)
+);
+
+create table news(
+	news_id number primary key
+	, title varchar2(100)
+	, writer varchar2(30)
+	, content clob
+);

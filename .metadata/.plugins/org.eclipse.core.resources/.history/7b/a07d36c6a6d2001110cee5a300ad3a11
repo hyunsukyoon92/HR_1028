@@ -1,0 +1,38 @@
+package com.hexagon.springmvc.security;
+
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import com.hexagon.springmvc.domain.Admin;
+import com.hexagon.springmvc.mapper.AdminMapper;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+/*---------------------------------------------------------------------
+스프링 시큐리티에서 DB연동이 시작되는 모델영역의 객체
+개발자는 여기서 자신이 사용하는 DB 기술에 적한 코드를 작성해야함
+JDBC - DAO 사용
+MyBatis - Mapper 인터페이스 사용
+Hibernate - 하이버네이트 Repository 사용
+JPA - JPARepository
+-----------------------------------------------------------------------*/
+@Slf4j
+@Service // 우리의경우 RootConfig 클래스 차원에서 빈 자동 검색 등록을 완료함
+@RequiredArgsConstructor
+public class CustomUserDetailsService implements UserDetailsService {
+
+	private final AdminMapper adminMapper;
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
+		// Account 테이블에서 회원 아이디가 일치하는 정보를 무조건 가져오자!
+		// 이 시점에는 아직 비번 비교가 일어나지 않음(유저가 입력한 평문의 비밀번호를 Bcrypt 방식으로 암호화한 결과와 오라클에 들어있는 암호화 데이터와의 비교는)
+		// 스프링 시큐리트에서 제공하는  PasswordEncoder가 수행해주므로 (개발자가 비교하지 않음)
+		
+		return null;
+	}
+}

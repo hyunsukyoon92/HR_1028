@@ -1,0 +1,5 @@
+package com.hexagon.springmvc.security;
+
+public class LoginSuccessHandler {
+
+}

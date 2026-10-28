@@ -1,0 +1,16 @@
+127.0.0.1 - - [26/Oct/2026:11:27:19 +0900] "GET / HTTP/1.1" 200 52
+0:0:0:0:0:0:0:1 - - [26/Oct/2026:11:27:20 +0900] "GET /news/main HTTP/1.1" 200 7675
+0:0:0:0:0:0:0:1 - - [26/Oct/2026:11:27:20 +0900] "GET /favicon.ico HTTP/1.1" 404 722
+0:0:0:0:0:0:0:1 - - [26/Oct/2026:11:27:20 +0900] "GET /api/topcategories HTTP/1.1" 200 171
+127.0.0.1 - - [26/Oct/2026:11:52:11 +0900] "GET / HTTP/1.1" 200 52
+0:0:0:0:0:0:0:1 - - [26/Oct/2026:11:52:11 +0900] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 722
+0:0:0:0:0:0:0:1 - - [26/Oct/2026:11:52:11 +0900] "GET /news/main HTTP/1.1" 200 8686
+0:0:0:0:0:0:0:1 - - [26/Oct/2026:11:52:11 +0900] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 722
+0:0:0:0:0:0:0:1 - - [26/Oct/2026:11:52:12 +0900] "GET /api/topcategories HTTP/1.1" 200 171
+0:0:0:0:0:0:0:1 - - [26/Oct/2026:11:52:16 +0900] "GET /api/subcategories/2 HTTP/1.1" 200 227
+127.0.0.1 - - [26/Oct/2026:12:35:14 +0900] "GET / HTTP/1.1" 200 52
+0:0:0:0:0:0:0:1 - - [26/Oct/2026:12:35:18 +0900] "GET /news/main HTTP/1.1" 200 10111
+0:0:0:0:0:0:0:1 - - [26/Oct/2026:12:35:19 +0900] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 722
+0:0:0:0:0:0:0:1 - - [26/Oct/2026:12:35:19 +0900] "GET /api/topcategories HTTP/1.1" 200 171
+0:0:0:0:0:0:0:1 - - [26/Oct/2026:12:35:22 +0900] "GET /api/subcategories/2 HTTP/1.1" 200 227
+0:0:0:0:0:0:0:1 - - [26/Oct/2026:12:35:38 +0900] "POST /api/news HTTP/1.1" 200 -

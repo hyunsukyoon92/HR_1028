@@ -1,0 +1,22 @@
+package com.hexagon.springmvc.service;
+
+import org.springframework.stereotype.Service;
+
+import com.hexagon.springmvc.domain.News;
+import com.hexagon.springmvc.mapper.NewsMapper;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class NewsService {
+	private final NewsMapper newsMapper;
+	
+	//뉴스 기사 등록
+	public int regist() {
+		
+		News news = new News();
+		
+		newsMapper.insert(null);
+	}
+}

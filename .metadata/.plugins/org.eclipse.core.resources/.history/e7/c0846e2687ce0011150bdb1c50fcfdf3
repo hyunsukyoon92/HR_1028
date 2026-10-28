@@ -1,0 +1,85 @@
+-- 뉴스기사 최상위 카테고리
+create table topcategory(
+	topcategory_id number promary key
+	, top_name varchar2(30) -- 정치, 경제, 사회, IT/과학
+);
+
+create table subcategory(
+	subcategory_id number primary key
+	, sub_name varchar2(30)
+	, topcategory_id number
+	, constraint fk_subcategory_topcategory foreign key(topcategory_id) references topcategory(topcategory_id)
+);
+
+create table news(
+	news_id number primary key
+	, title varchar2(100)
+	, writer varchar2(30)
+	, content clob
+	, created_at date default sysdate
+	, hit number default 0
+	,subcategory_id number
+	, constraint fk_news_subcategory foreign key(subcategory_id) references subcategory(subcategory_id)
+);
+
+create table comments(
+	comments_id number primary key
+	, msg varchar2(200)
+	, commenter varchar2(30)
+	, created_at date default sysdate
+	, news_id number
+	, constraint fk_comments_news foreign key(news_id) references new(news_id)
+);
+
+create sequence seq_topcategory
+increment by 1
+start with 1;
+
+create sequence seq_subcategory
+increment by 1
+start with 1;
+
+create sequence seq_news
+increment by 1
+start with 1;
+
+create sequence seq_comments
+increment by 1
+start with 1;
+
+-- 상위 카테고리 등록 (시퀀스 seq_topcategory 사용)
+INSERT INTO topcategory (topcategory_id, top_name) VALUES (seq_topcategory.NEXTVAL, '정치'); 
+INSERT INTO topcategory (topcategory_id, top_name) VALUES (seq_topcategory.NEXTVAL, '경제'); 
+INSERT INTO topcategory (topcategory_id, top_name) VALUES (seq_topcategory.NEXTVAL, '사회'); 
+INSERT INTO topcategory (topcategory_id, top_name) VALUES (seq_topcategory.NEXTVAL, 'IT/과학');
+
+-- [1. 정치 (topcategory_id = 1)] 하위 카테고리
+INSERT INTO subcategory (subcategory_id, sub_name, topcategory_id) VALUES (seq_subcategory.NEXTVAL, '대통령실/국회', 1);
+INSERT INTO subcategory (subcategory_id, sub_name, topcategory_id) VALUES (seq_subcategory.NEXTVAL, '정당', 1);
+INSERT INTO subcategory (subcategory_id, sub_name, topcategory_id) VALUES (seq_subcategory.NEXTVAL, '선거', 1);
+INSERT INTO subcategory (subcategory_id, sub_name, topcategory_id) VALUES (seq_subcategory.NEXTVAL, '행정', 1);
+INSERT INTO subcategory (subcategory_id, sub_name, topcategory_id) VALUES (seq_subcategory.NEXTVAL, '외교/안보', 1);
+
+-- [2. 경제 (topcategory_id = 2)] 하위 카테고리
+INSERT INTO subcategory (subcategory_id, sub_name, topcategory_id) VALUES (seq_subcategory.NEXTVAL, '금융', 2);
+INSERT INTO subcategory (subcategory_id, sub_name, topcategory_id) VALUES (seq_subcategory.NEXTVAL, '증권', 2);
+INSERT INTO subcategory (subcategory_id, sub_name, topcategory_id) VALUES (seq_subcategory.NEXTVAL, '부동산', 2);
+INSERT INTO subcategory (subcategory_id, sub_name, topcategory_id) VALUES (seq_subcategory.NEXTVAL, '산업/기업', 2);
+INSERT INTO subcategory (subcategory_id, sub_name, topcategory_id) VALUES (seq_subcategory.NEXTVAL, '글로벌경제', 2);
+
+-- [3. 사회 (topcategory_id = 3)] 하위 카테고리
+INSERT INTO subcategory (subcategory_id, sub_name, topcategory_id) VALUES (seq_subcategory.NEXTVAL, '사건/사고', 3);
+INSERT INTO subcategory (subcategory_id, sub_name, topcategory_id) VALUES (seq_subcategory.NEXTVAL, '교육', 3);
+INSERT INTO subcategory (subcategory_id, sub_name, topcategory_id) VALUES (seq_subcategory.NEXTVAL, '노동', 3);
+INSERT INTO subcategory (subcategory_id, sub_name, topcategory_id) VALUES (seq_subcategory.NEXTVAL, '법원/검찰', 3);
+INSERT INTO subcategory (subcategory_id, sub_name, topcategory_id) VALUES (seq_subcategory.NEXTVAL, '환경', 3);
+
+-- [4. IT/과학 (topcategory_id = 4)] 하위 카테고리
+INSERT INTO subcategory (subcategory_id, sub_name, topcategory_id) VALUES (seq_subcategory.NEXTVAL, '모바일', 4);
+INSERT INTO subcategory (subcategory_id, sub_name, topcategory_id) VALUES (seq_subcategory.NEXTVAL, '인터넷/IT', 4);
+INSERT INTO subcategory (subcategory_id, sub_name, topcategory_id) VALUES (seq_subcategory.NEXTVAL, '인공지능(AI)', 4);
+INSERT INTO subcategory (subcategory_id, sub_name, topcategory_id) VALUES (seq_subcategory.NEXTVAL, '과학', 4);
+INSERT INTO subcategory (subcategory_id, sub_name, topcategory_id) VALUES (seq_subcategory.NEXTVAL, '보안', 4);
+
+-- 트랜잭션 반영
+COMMIT;
